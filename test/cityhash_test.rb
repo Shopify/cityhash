@@ -21,4 +21,10 @@ describe CityHash do
     seed = (123 << 64) | 123
     assert_equal 1631427474705635869517741677842296176559, CityHash.hash128("test", seed)
   end
+
+  it 'does not core when you pass it nil' do
+    assert_raises TypeError do
+      CityHash.hash64(nil)
+    end
+  end
 end
